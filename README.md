@@ -7,7 +7,8 @@ Based on Martin Angelov quick tip on [tutorialzine](http://tutorialzine.com/2013
 
 Install
 ---------
-1. Download and unzip the [url-shortener script](https://github.com/berteh/url-shortener/archive/master.zip) to your webserver, eg. in ``/var/www``
+
+1. Download and unzip the [url-shortener script](https://github.com/berteh/url-shortener/archive/master.zip) to your webserver, eg. in ``/var/www``.
 2. Configure a virtual host to serve it, typically (on apache):
 
 `
@@ -31,6 +32,7 @@ Add any shortcut you wish to serve in ``links.ini`` file, in the form ``shortcut
 Advanced settings
 ---------
 Optionally change 
+
 1. the url used when shortcuts are not found to your own search engine, in the config section of ``index.php``.
 2. the mechanism to get warnings of unused shortcuts that are called, either in log file or by mail, by uncommenting the last line of ``index.php``.
 
