@@ -3,30 +3,29 @@ url-shortener
 
 Simplistic url shortener PHP script, no database required, clean redirect for non existing shortcuts.
 
-Based on Martin Angelov quick tip on (tutorialzine)[http://tutorialzine.com/2013/12/quick-tip-create-a-simple-url-shortener-with-10-lines-of-php/].
+Based on Martin Angelov quick tip on [tutorialzine](http://tutorialzine.com/2013/12/quick-tip-create-a-simple-url-shortener-with-10-lines-of-php/).
 
 Install
 ---------
 1. Download and unzip the [url-shortener script](https://github.com/berteh/url-shortener/archive/master.zip) to your webserver, eg. in ``/var/www``
 2. Configure a virtual host to serve it, typically (on apache):
 
-``
-<VirtualHost *:80>
-        ServerName short.myhost.com
-        ServerAlias  s.myhost.com
-        DocumentRoot /var/www/url-shortener
-        <Directory /var/www/url-shortener>
-                AllowOverride All
-                Order allow,deny
-                allow from all
-        </Directory>
-</VirtualHost>
-``
-
+`
+    <VirtualHost *:80>
+      ServerName short.myhost.com
+      ServerAlias  s.myhost.com
+      DocumentRoot /var/www/url-shortener
+      <Directory /var/www/url-shortener>
+        AllowOverride All
+        Order allow,deny
+        allow from all
+      </Directory>
+    </VirtualHost>
+`
 
 Use
 --------
-Add any shortcut you wish to serve in ``links.ini`` file, in the form `` shortcut = "http://full-long-url"``.
+Add any shortcut you wish to serve in ``links.ini`` file, in the form ``shortcut = "http://full-long-url"``.
 
 
 Advanced settings
@@ -38,7 +37,7 @@ Optionally change
 
 Support and Contribute
 --------------
-Support via the project (Issues)[/issues], contribute via (pull-request)[/pull].
+Support via the project [Issues](https://github.com/berteh/url-shortener/issues), contribute via [pull-request](https://github.com/berteh/url-shortener/pulls).
 
 
 License
