@@ -1,0 +1,1 @@
+this file should be writeable by your webserver user. typically: chmod 666 url-shortener-missing.log
