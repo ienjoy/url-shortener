@@ -5,7 +5,7 @@
 //config
 define("REFRESHTIME", 4); //time (in seconds) to display a warning in case shortcut is not defined
 define("FIXURL", "http://www.google.com/search?q=");
-
+define("ALLOWLIST",1); //set to 0 to disable the /?list=1 url to list all shortcuts available
 
 //usually nothing to configure below.
 $start = microtime(true);
@@ -17,7 +17,7 @@ $short = trim($_SERVER['REQUEST_URI'], '/');
 if(array_key_exists($short, $links)){
     header("Location: ".$links[$short]);
 }
-elseif(isset($_GET["list"])){
+elseif(ALLOWLIST && isset($_GET["list"])){
     $end = microtime(true);
     $time = round($end - $start, 7) . " sec";
     $title = "Shortcuts on ".$_SERVER['HTTP_HOST'];
