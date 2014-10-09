@@ -37,7 +37,7 @@ elseif(ALLOWLIST && isset($_GET["list"])){
 EOT;
     $i = 1;
     foreach ($links as $s => $l) {
-	echo "<tr> <td>".$i++."</td><td><a href='http:/".$_SERVER['HTTP_HOST']."/$s'>$s</a></td> <td><a href='$l'>".substr($l,0,70)."</a></td> </tr>\n ";
+	echo "<tr> <td>".$i++."</td><td><a href='http://".$_SERVER['HTTP_HOST']."/$s'>$s</a></td> <td><a href='$l'>".substr($l,0,70)."</a></td> </tr>\n ";
     }
     echo "</tbody></table>\n</body></html>";
 }
