@@ -18,17 +18,28 @@ if(array_key_exists($short, $links)){
     header("Location: ".$links[$short]);
 }
 elseif(isset($_GET["list"])){
-
     $end = microtime(true);
     $time = round($end - $start, 7) . " sec";
     $title = "Shortcuts on ".$_SERVER['HTTP_HOST'];
 
-    echo "<html><head><title>$title</title></head>\n<h2>$title</h2>\n";
-    echo "<p>Loading the following list of links took $time</p>\n<ol>\n";
+    echo <<<EOT
+<html><head>
+<title>$title</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/sortable/0.6.0/css/sortable-theme-finder.css">
+<style>body{font-family: sans-serif; font-size: 12px;}</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sortable/0.6.0/js/sortable.min.js"></script>
+</head><body>
+
+<h2>$title</h2>
+<p>Loading the list of links took $time.</p>
+<table data-sortable class="sortable-theme-finder">
+<thead><tr><th>#</th><th>short</th><th>long</th></thead><tbody>
+EOT;
+    $i = 1;
     foreach ($links as $s => $l) {
-	echo "<li><a href='http://".$_SERVER['HTTP_HOST']."/$s'>$s</a> - $l</li>\n";
+	echo "<tr> <td>".$i++."</td><td><a href='http:/".$_SERVER['HTTP_HOST']."/$s'>$s</a></td> <td><a href='$l'>".substr($l,0,70)."</a></td> </tr>\n ";
     }
-    echo "</ol>\n";
+    echo "</tbody></table>\n</body></html>";
 }
 else{
     $fix = FIXURL."$short";
